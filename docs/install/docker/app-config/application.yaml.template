@@ -1,0 +1,16 @@
+ausweis-status:
+  documents:
+    - tag: passport-rohit
+      holder: Rohit
+      document_id: <document-id>
+      document_type: passport
+
+spring:
+  main:
+    web-application-type: none
+
+slack-bot:
+  bot-config:
+    bot-name: <slack-bot-name>
+    auth-token: <slack-bot-auth-token>
+    channel-name: <channel-id>
