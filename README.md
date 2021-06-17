@@ -26,7 +26,7 @@ Bot to check if your applied Ausweis/Passport/Residence permit in Munich City is
    - tag: passport-rohit
      holder: Rohit
      document_id: <document-id>
-     document_type: passport
+     document_type: <passport/ausweis etc>
    ```
 
 4. Add the credentials for the Slack Bot
