@@ -25,3 +25,9 @@ steps:
         - push
         - tag
         - tag
+
+trigger:
+  event:
+    include:
+      - push
+      - pull_request
