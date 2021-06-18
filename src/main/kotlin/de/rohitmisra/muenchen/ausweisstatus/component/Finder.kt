@@ -34,12 +34,14 @@ class Finder(
     @PostConstruct
     fun setup() {
         finderProperties.documents.map {
-            documentInfoList.add(DocumentInfo(
-                tag = it["tag"]!!,
-                documentId = it["document_id"]!!,
-                documentType = it["document_type"]!!,
-                holder = it["holder"]!!
-            ))
+            documentInfoList.add(
+                DocumentInfo(
+                    tag = it["tag"]!!,
+                    documentId = it["document_id"]!!,
+                    documentType = it["document_type"]!!,
+                    holder = it["holder"]!!
+                )
+            )
         }
     }
 
@@ -73,7 +75,8 @@ class Finder(
         val doc: Document = Jsoup.parse(body)
         doc.body().text()?.takeIf {
             it.contains(documentInfo.documentId) && !it.contains("liegt noch nicht zur Abholung bereit.")
-        }?.let {
+        }?.apply {
+            log.info(this)
             log.info("${documentInfo.holder}'s ${documentInfo.documentType} is available")
             notifier.notify("${documentInfo.holder}'s ${documentInfo.documentType} is available")
         }
