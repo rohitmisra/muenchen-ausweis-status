@@ -12,8 +12,7 @@ steps:
   - name: publish
     image: plugins/docker:18
     settings:
-      auto_tag: true
-      auto_tag_suffix: linux-amd64
+      tags: latest
       dockerfile: Dockerfile
       repo: rohitmisra44/muenchen-ausweis-status
       username:
@@ -23,7 +22,6 @@ steps:
     when:
       event:
         - push
-        - tag
         - tag
 
 trigger:
